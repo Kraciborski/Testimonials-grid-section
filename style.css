@@ -1,0 +1,146 @@
+:root {
+  --violet: hsl(263, 55%, 52%);
+  --dark-grayish-blue: hsl(217, 19%, 35%);
+  --dark-blackish-blue: hsl(219, 29%, 14%);
+  --white: hsl(0, 0%, 100%);
+  --light-gray: hsl(0, 0%, 81%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+  
+  --font-main: 'Barlow Semi Condensed', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  font-size: 13px;
+  background-color: var(--light-grayish-blue);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 24px;
+}
+
+.container {
+  max-width: 1110px;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.card {
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
+}
+
+.card--daniel {
+  background-color: var(--violet);
+  color: var(--white);
+  background-image: url('./images/bg-pattern-quotation.svg');
+  background-repeat: no-repeat;
+  background-position: top 0 right 10%;
+}
+
+.card--jonathan {
+  background-color: var(--dark-grayish-blue);
+  color: var(--white);
+}
+
+.card--jeanette {
+  background-color: var(--white);
+  color: var(--dark-grayish-blue);
+}
+
+.card--patrick {
+  background-color: var(--dark-blackish-blue);
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+.card--kira {
+  background-color: var(--white);
+  color: var(--dark-grayish-blue);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.profile__image {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.card--daniel .profile__image,
+.card--patrick .profile__image {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.profile__name {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.profile__status {
+  font-size: 0.7rem;
+  opacity: 0.5;
+}
+
+.card__lead {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.card__quote {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  opacity: 0.7;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .card--daniel {
+    grid-column: span 2;
+    background-position: top 0 right 15%;
+  }
+
+  .card--jonathan {
+    grid-column: span 1;
+  }
+
+  .card--jeanette {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .card--patrick {
+    grid-column: span 2;
+    grid-row: 2;
+  }
+
+  .card--kira {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+  }
+}
